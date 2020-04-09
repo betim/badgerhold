@@ -37,6 +37,7 @@ func NextSequence() interface{} {
 //
 // To use this with badgerhold.NextSequence() use a type of `uint64` for the key field.
 func (s *Store) Insert(key, data interface{}) error {
+	fmt.Println("HERE")
 	return s.Badger().Update(func(tx *badger.Txn) error {
 		return s.TxInsert(tx, key, data)
 	})
